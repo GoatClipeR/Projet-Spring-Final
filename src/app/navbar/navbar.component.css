@@ -1,0 +1,12 @@
+/* Navbar custom styles */
+.navbar-brand .brand-text { font-weight:700; color: #fff; font-family: "Poppins", sans-serif; }
+.navbar { padding: 0.75rem 1.25rem; background: var(--brand-gradient); box-shadow: 0 8px 22px rgba(9,10,27,0.06); border-bottom:1px solid rgba(0,0,0,0.03); }
+.navbar .nav-link { color: rgba(255,255,255,0.95); font-weight:500; }
+.navbar .nav-link.active { color: #fff; font-weight:700; }
+.navbar .dropdown-menu { min-width: 12rem; }
+.navbar .form-control { width: 220px; max-width: 40vw; background: rgba(255,255,255,0.08); border: 0; color: #fff; }
+.navbar .form-control::placeholder { color: rgba(255,255,255,0.85); }
+.navbar .form-control:focus { background: rgba(255,255,255,0.12); box-shadow: none; border: 0; }
+.navbar .btn-brand { color: #fff; background-color: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: .35rem .75rem; }
+.navbar-toggler { border-color: rgba(255,255,255,0.15); }
+.navbar-toggler-icon { filter: invert(1) brightness(2); }
