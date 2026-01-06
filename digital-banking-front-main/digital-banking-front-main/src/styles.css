@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+@import"../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+/* Magma Theme Colors */
+:root {
+	--magma-primary: #ff6b35;
+	--magma-dark: #ff4500;
+	--magma-light: #ff8c00;
+	--magma-red: #cc0000;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: var(--bs-tertiary-bg);
+}
+
+.app-page {
+	padding: 1.25rem;
+}
+
+.app-page-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.app-page-title {
+	margin: 0;
+	font-weight: 700;
+}
+
+.app-muted {
+	color: var(--bs-secondary-color);
+}
+
+.card {
+	border: 1px solid var(--bs-border-color);
+}
+
+.table thead th {
+	color: var(--bs-secondary-color);
+	font-weight: 600;
+}
+
+/* Magma Button styles */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus {
+	background-color: var(--magma-primary) !important;
+	border-color: var(--magma-primary) !important;
+	color: white !important;
+}
+
+.btn-primary:hover {
+	background-color: var(--magma-dark) !important;
+	border-color: var(--magma-dark) !important;
+}
+
+/* Magma Link colors */
+a {
+	color: var(--magma-primary) !important;
+}
+
+a:hover {
+	color: var(--magma-dark) !important;
+}
+
+/* Magma Badge */
+.badge-primary {
+	background-color: var(--magma-primary) !important;
+}
+
+
