@@ -1,0 +1,40 @@
+<div class="app-page">
+  <div class="app-page-header">
+    <div>
+      <h1 class="app-page-title h5">Nouveau client</h1>
+      <div class="app-muted small">Création d’un client (ADMIN)</div>
+    </div>
+  </div>
+
+  <div class="card" style="max-width: 560px;">
+    <div class="card-body">
+      <form [formGroup]="newCustomerFormGroup" (ngSubmit)="handleSaveCustomer()">
+        <div class="mb-3">
+          <label class="form-label">Nom</label>
+          <input type="text" class="form-control" formControlName="name" />
+          <span class="text-danger" *ngIf="newCustomerFormGroup.controls['name'].touched &&
+                    newCustomerFormGroup.controls['name'].errors
+                    && newCustomerFormGroup.controls['name'].errors!['required'] ">
+            Name is Required
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="email" />
+          <span class="text-danger" *ngIf="newCustomerFormGroup.controls['email'].touched &&
+                    newCustomerFormGroup.controls['email'].errors
+                    && newCustomerFormGroup.controls['email'].errors!['required'] ">
+            Email is Required
+          </span>
+        </div>
+
+        <button [disabled]="!newCustomerFormGroup.valid" class="btn btn-primary" type="submit">
+          Enregistrer
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+

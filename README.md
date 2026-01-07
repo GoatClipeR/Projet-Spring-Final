@@ -1,27 +1,83 @@
-# DigitalBankingWeb
+# E‑Banking (Angular + Spring Boot)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+Ce workspace contient :
+- **Frontend** Angular (UI reconstruite) : `digital-banking-front-main/digital-banking-front-main`
+- **Backend** Spring Boot (API + JWT + H2 en dev) : `ebanking-backend-main/ebanking-backend-main`
 
-## Development server
+## Prérequis
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Backend
+- **JDK 17** (aligné avec `pom.xml`)
+- (Optionnel) **Maven** : le projet fournit `mvnw.cmd` (recommandé)
 
-## Code scaffolding
+### Frontend
+- **Node.js** : recommandé **Node 20 LTS** (Angular 17 peut afficher un warning avec Node 22)
+- **npm** (fourni avec Node)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Exécuter le projet (mode dev)
 
-## Build
+### 1) Lancer le backend (API)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Depuis la racine du workspace :
 
-## Running unit tests
+```powershell
+cd "ebanking-backend-main\ebanking-backend-main"
+.\mvnw.cmd spring-boot:run
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Backend disponible sur :
+- API : `http://localhost:8085/`
+- OpenAPI : `http://localhost:8085/v3/api-docs`
+- Swagger UI (si activé par springdoc) : `http://localhost:8085/swagger-ui/index.html`
+- H2 Console : `http://localhost:8085/h2-console`
 
-## Running end-to-end tests
+**Base de données (dev)** : H2 in‑memory (config dans `src/main/resources/application.properties`).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 2) Lancer le frontend (Angular)
 
-## Further help
+Dans un **autre terminal** :
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```powershell
+cd "digital-banking-front-main\digital-banking-front-main"
+npm install
+npm start
+```
+
+Frontend disponible sur :
+- `http://localhost:4200/`
+
+## Comptes de test
+
+- **admin / 12345** (rôle ADMIN)
+- **user1 / 12345** (rôle USER)
+
+## Commandes utiles
+
+### Frontend
+
+```powershell
+cd "digital-banking-front-main\digital-banking-front-main"
+
+# Démarrage dev
+npm start
+
+# Build production (sortie dans dist/)
+npm run build
+```
+
+### Backend
+
+```powershell
+cd "ebanking-backend-main\ebanking-backend-main"
+
+# Lancer
+.\mvnw.cmd spring-boot:run
+
+# Build (jar)
+.\mvnw.cmd -DskipTests package
+```
+
+## Dépannage rapide
+
+- Si l’UI affiche des erreurs API : vérifier que le backend écoute sur `http://localhost:8085`.
+- Si Node affiche « unsupported » : installer Node 20 LTS et relancer `npm install`.

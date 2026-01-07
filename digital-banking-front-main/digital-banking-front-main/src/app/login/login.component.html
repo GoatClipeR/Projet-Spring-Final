@@ -1,0 +1,80 @@
+<!-- <div class="p-3">
+  <div class="card">
+    <div class="card-header">
+      Authentication
+    </div>
+    <div class="card-body">
+      <form [formGroup]="formLogin" (ngSubmit)="handleLogin()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" formControlName="username" id="username">
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="text" class="form-control" formControlName="password" id="password">
+        </div>
+
+        <button class="btn btn-success">Login</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="auth-shell">
+    <div class="auth-card">
+        <div class="auth-side d-none d-lg-flex">
+            <div class="dollar-icons">
+                <i class="bi bi-currency-dollar dollar-icon dollar-1"></i>
+                <i class="bi bi-currency-dollar dollar-icon dollar-2"></i>
+                <i class="bi bi-currency-dollar dollar-icon dollar-3"></i>
+                <i class="bi bi-currency-dollar dollar-icon dollar-4"></i>
+            </div>
+            <div class="auth-side-inner">
+                <div class="logo-circle-wrapper">
+                    <div class="circle-background"></div>
+                    <i class="bi bi-building-fill circle-icon"></i>
+                </div>
+                <h1 class="h4 mb-2 text-magma">MAGMA BANK</h1>
+                <p class="mb-0 text-body-secondary">
+                    Connectez‑vous pour accéder à l’interface d’administration.
+                </p>
+            </div>
+        </div>
+
+        <div class="auth-form">
+            <div class="mb-4">
+                <h2 class="h5 mb-1">Connexion</h2>
+                <div class="text-body-secondary small">Authentification par JWT</div>
+            </div>
+
+            <form [formGroup]="formLogin" (ngSubmit)="handleLogin()">
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" formControlName="username" placeholder="admin" autocomplete="username" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                        <input type="password" class="form-control" formControlName="password" placeholder="12345" autocomplete="current-password" />
+                    </div>
+                </div>
+
+                <button class="btn btn-magma w-100" type="submit" [disabled]="formLogin.invalid">
+                    Se connecter
+                </button>
+
+                <div class="mt-3 small text-body-secondary">
+                    Comptes de démo: <span class="fw-semibold">admin/12345</span>, <span class="fw-semibold">user1/12345</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
