@@ -1,0 +1,72 @@
+<div class="app-page">
+  <div class="app-page-header">
+    <div>
+      <h1 class="app-page-title h5">Clients</h1>
+      <div class="app-muted small">Recherche, suppression et consultation des comptes</div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="customers | async as listCustomers; else failureOrLoading">
+    <div class="card">
+      <div class="card-body">
+        <div *ngIf="searchFormGroup">
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input type="text" formControlName="keyword" class="form-control" placeholder="Rechercher un client…" />
+              <button class="btn btn-primary" type="submit">Rechercher</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let c of customers | async">
+              <td class="text-nowrap">{{ c.id }}</td>
+              <td>{{ c.name }}</td>
+              <td>{{ c.email }}</td>
+              <td class="text-end">
+                <button (click)="handleCustomerAccounts(c)" class="btn btn-outline-primary btn-sm me-2" type="button">
+                  <i class="bi bi-wallet2 me-1"></i>
+                  Comptes
+                </button>
+                <button (click)="handleDeleteCustomer(c)" class="btn btn-outline-danger btn-sm" type="button">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #failureOrLoading>
+    <ng-container *ngIf="errorMessage; else loading">
+      <div class="alert alert-danger mb-0">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        {{ errorMessage }}
+      </div>
+    </ng-container>
+
+    <ng-template #loading>
+      <div class="card">
+        <div class="card-body">Chargement…</div>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>
+

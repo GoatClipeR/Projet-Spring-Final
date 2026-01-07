@@ -1,0 +1,50 @@
+<div class="app-page">
+  <div class="app-page-header">
+    <div>
+      <h1 class="app-page-title h5">Comptes client</h1>
+      <div class="app-muted small">{{ customer.name }}</div>
+    </div>
+
+    <a class="btn btn-outline-secondary btn-sm" routerLink="/admin/customers">
+      <i class="bi bi-arrow-left me-1"></i>
+      Retour
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Balance</th>
+            <th>CreatedAt</th>
+            <th>Type</th>
+            <th>Overdraft</th>
+            <th>InterestRate</th>
+            <th class="text-end"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let ac of listAccounts">
+            <td class="text-nowrap">{{ ac.id }}</td>
+            <td>{{ ac.balance }}</td>
+            <td class="text-nowrap">{{ ac.createdAt }}</td>
+            <td><span class="badge text-bg-light border">{{ ac.type }}</span></td>
+            <td>{{ ac.overdraft ? ac.overdraft : "---" }}</td>
+            <td>{{ ac.interestRate ? ac.interestRate : "---" }}</td>
+            <td class="text-end">
+              <button (click)="goToOperations(ac)" class="btn btn-outline-primary btn-sm" type="button">
+                <i class="bi bi-list-ul me-1"></i>
+                Opérations
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
